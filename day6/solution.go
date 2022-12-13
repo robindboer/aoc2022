@@ -15,9 +15,9 @@ func main() {
 
 func findMarker(characters string, markerSize int) int {
 	for i := markerSize; i <= len(characters); i++ {
-		m := map[rune]bool{}
+		m := map[rune]struct{}{}
 		for _, r := range characters[i-markerSize : i] {
-			m[r] = true
+			m[r] = struct{}{}
 		}
 		if len(m) >= markerSize {
 			return i
